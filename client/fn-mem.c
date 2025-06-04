@@ -69,7 +69,7 @@ void frontier_free(void *ptr)
      {
       size=a_mem[i].size;
       a_mem[i].size=-1;
-      a_mem[i].ptr=(long)0;
+      a_mem[i].ptr=NULL;
       break;
      }
    }

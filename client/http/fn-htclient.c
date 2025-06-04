@@ -1029,7 +1029,7 @@ static char *curhostname(FrontierHostsInfo *fhi)
   buf=fhi->debugbuf;
   len=sizeof(fhi->debugbuf);
 
-  strncpy(buf,fui->host,len);
+  strncpy(buf,fui->host,len-1);
   if(fui->fai->ai!=0)
    {
     int n=strlen(fui->host);
@@ -1072,7 +1072,7 @@ char *frontierHttpClnt_myipaddr(FrontierHttpClnt *c)
     frontier_log(FRONTIER_LOGLEVEL_DEBUG,__FILE__,__LINE__,"cannot get sockname for socket %d: %s",c->socket,strerror(errno));
     return NULL;
    }
-  strncpy(buf,frontier_ipaddr((struct sockaddr *)&sockaddrbuf),sizeof(c->serveri.debugbuf));
+  strncpy(buf,frontier_ipaddr((struct sockaddr *)&sockaddrbuf),sizeof(c->serveri.debugbuf)-1);
   frontier_log(FRONTIER_LOGLEVEL_DEBUG,__FILE__,__LINE__,"my ip addr: %s",buf);
   return(buf);
  }
