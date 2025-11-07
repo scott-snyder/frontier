@@ -1,9 +1,15 @@
 {
   "version": 5,
-  "prev": "7d49ccbabfdedd6ec498337a96024d510ed8df5f",
-  "head": "f5f19dda7610d581d0bce9c29f9ffd84057163ef",
-  "applied": [],
+  "prev": "5266adca8390ce4085077856dffd9b080e6c5249",
+  "head": "547da984329e149b3c18831b156d63901157c4c7",
+  "applied": [
+    "logcmdline"
+  ],
   "unapplied": [],
   "hidden": [],
-  "patches": {}
+  "patches": {
+    "logcmdline": {
+      "oid": "547da984329e149b3c18831b156d63901157c4c7"
+    }
+  }
 }
