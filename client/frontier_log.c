@@ -55,7 +55,22 @@ int frontier_log_init()
    }
   log_fd=open(fname,O_CREAT|O_APPEND|O_WRONLY,0644);
   if(log_fd>=0)
+  {
+    char cmdline[1024];
+    int cfd = open("/proc/self/cmdline",O_RDONLY);
+    if (cfd >= 0) {
+      int n = read (cfd, cmdline, sizeof(cmdline)-1);
+      if (n >= 0 && n < sizeof(cmdline)-1) {
+        for (int i=0; i < n; i++) {
+          if (cmdline[i] == '\0') cmdline[i] = ' ';
+        }
+        write (log_fd, cmdline, n);
+        write (log_fd, "\n", 1);
+      }
+      close (cfd);
+    }
     return 1;
+  }
   return 0;
  }
 
