@@ -572,13 +572,13 @@ static int get_cert(Channel *chn,const char *uri,int curserver)
   ret=frontierHttpClnt_open(chn->ht_clnt);
   if(ret) goto end;
 
-  p=strstr(uri,"/type=");
-  if(p==0)
+  const char* pc=strstr(uri,"/type=");
+  if(pc==0)
    {
     frontier_setErrorMsg(__FILE__,__LINE__,"cannot find /type= in URI: %s",uri);
     return FRONTIER_EIARG;
    }
-  len=p-uri;
+  len=pc-uri;
 #define CERTURISTR "/type=cert_request:1&encoding=pem"
   certuri=frontier_mem_alloc(len+sizeof(CERTURISTR));
   if(!certuri) {ret=FRONTIER_EMEM;FRONTIER_MSG(ret);goto end;}

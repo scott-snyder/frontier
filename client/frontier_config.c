@@ -495,7 +495,8 @@ static int frontierConfig_parseComplexServerSpec(FrontierConfig *cfg,const char*
  {
   char *str=frontier_str_copy(server_spec);
   char *p=str-1;
-  char *keyp=0,*valp=0;
+  const char *keyp=0;
+  char *valp=0;
   int nestlevel=0;
   int ret;
 
@@ -511,7 +512,7 @@ static int frontierConfig_parseComplexServerSpec(FrontierConfig *cfg,const char*
    {
     // save all but this keyword as the default physical servers for
     //  later connections
-    char *nextp=strchr(keyp,')');
+    const char *nextp=strchr(keyp,')');
     if(nextp!=NULL)
      {
       char *cp=(char *)frontier_mem_alloc(strlen(server_spec));
