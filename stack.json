@@ -1,11 +1,10 @@
 {
   "version": 5,
-  "prev": "9df5095b1ad8148474e691429469c3eb129e41a1",
-  "head": "1f72be8382eb2c6cd1a97ffed65a1e0f377745c6",
+  "prev": "ae8b45f02a1c242264ec718d73c2def1c75dd230",
+  "head": "00274eebf5441e9dcb070c909191cc28170d727b",
   "applied": [
     "logcmdline",
-    "const",
-    "refresh-temp"
+    "const"
   ],
   "unapplied": [],
   "hidden": [],
@@ -14,10 +13,7 @@
       "oid": "894848f5b59abe9ab2ef466d8aa7fcd67e1f0e51"
     },
     "const": {
-      "oid": "121f9112d7d0ae5deb19682f8ef980b4244fa9c6"
-    },
-    "refresh-temp": {
-      "oid": "1f72be8382eb2c6cd1a97ffed65a1e0f377745c6"
+      "oid": "00274eebf5441e9dcb070c909191cc28170d727b"
     }
   }
 }
