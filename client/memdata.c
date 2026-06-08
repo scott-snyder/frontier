@@ -61,10 +61,12 @@ urldecode(char *src)
   *dst = '\0';    
  }
 
-FrontierMemData *frontierMemData_create(int zipped,int secured,const char *params1,const char *params2)
+FrontierMemData *frontierMemData_create(int zipped,int secured,const char *params1_in,const char *params2)
  {
   FrontierMemData *md;
   FrontierMemBuf *mb;
+
+  char* params1 = frontier_str_copy (params1_in);
 
   md=frontier_mem_alloc(sizeof(*md));
   if(!md) return md;
@@ -119,8 +121,10 @@ FrontierMemData *frontierMemData_create(int zipped,int secured,const char *param
   md->binzipped=zipped;
   md->zipbuflen=0;
   fn_gunzip_init();
+  frontier_mem_free(params1);
   return md;
 err:
+  frontier_mem_free(params1);
   frontier_mem_free(md);
   if(!mb)frontier_mem_free(mb);
   return 0;
